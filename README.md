@@ -1,17 +1,19 @@
 # Dockerized gitdags
 
-Based on:
+[![Publish Docker](https://github.com/MilesChou/docker-gitdags/actions/workflows/registry.yml/badge.svg)](https://github.com/MilesChou/docker-gitdags/actions/workflows/registry.yml)
+
+Ref:
 
 https://github.com/ianmiell/gitdags
 
-and
+And based on
 
 https://github.com/Jubobs/gitdags
 
 ## Easy to use!!
 
 ```bash
-docker run --rm -it -v /path/to/your-tex:/tex ghcr.io/mileschou/gitdags
+docker run --rm -it -v /path/to/your-tex-files:/tex ghcr.io/mileschou/gitdags
 ```
 
 End.
