@@ -2,6 +2,8 @@ FROM alpine:3.14
 
 LABEL org.opencontainers.image.source https://github.com/MilesChou/docker-gitdags
 
+ARG TL_MIRROR_URL=https://mirror.ctan.org/tex-archive/systems/texlive/tlnet
+
 RUN set -xe && \
         apk add --no-cache \
             curl \
@@ -14,7 +16,7 @@ COPY ./texlive.profile /opt
 # Install texlive
 RUN set -xe && \
         cd /opt &&\
-        curl -LO mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+        curl -LO ${TL_MIRROR_URL}/install-tl-unx.tar.gz && \
         tar xzf install-tl-unx.tar.gz && rm -f install-tl-unx.tar.gz && \
         mv install-tl-[0-9]* install-tl && \
         /opt/install-tl/install-tl -profile /opt/texlive.profile && \
@@ -30,9 +32,6 @@ RUN set -xe && \
         unzip master.zip && rm master.zip
 
 WORKDIR /tex
-
-ENV LATEX_TO_PDF=0;
-ENV LATEX_TO_PNG=1;
 
 COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 

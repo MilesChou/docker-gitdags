@@ -1,7 +1,11 @@
-
 name: Publish Docker
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '30 0 * * 2' # Weekly on Tuesday at 00:30
 
 jobs:
   latest:
@@ -9,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build latest version and publish to GitHub Registry
-        uses: elgohr/Publish-Docker-Github-Action@2.22
+        uses: elgohr/Publish-Docker-Github-Action@3.04
         with:
           name: mileschou/gitdags
           tags: latest
