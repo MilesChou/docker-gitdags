@@ -1,6 +1,6 @@
 FROM alpine:3.14
 
-LABEL org.opencontainers.image.source https://github.com/MilesChou/docker-gitdags
+LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-gitdags"
 
 ARG TL_MIRROR_URL=https://mirror.ctan.org/tex-archive/systems/texlive/tlnet
 

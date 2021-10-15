@@ -17,7 +17,7 @@ jobs:
         with:
           name: mileschou/gitdags
           tags: latest
-          username: ${{ secrets.GHCR_USERNAME }}
-          password: ${{ secrets.GHCR_PAT }}
+          username: mileschou
+          password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
           dockerfile: Dockerfile
